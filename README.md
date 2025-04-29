@@ -10,3 +10,8 @@
 	Para la instalación lo primero es ejecutar el script llamado <b>"GestorTorneosDB.sql"</b>, luego abrir programa de visual studio y abrir la solución llamada <b>"Torneo_PED.sln"</b> y ejecutar programa
 </p>
 
+<br>
+<p>
+El sistema consiste un gestor para torneos de cualquier ambito donde por cada partida se enfrenten 2 jugadores o 2 equipos, donde uno tendrá que salir ganador, para luego ir pasando cada fase hasta llegar a la final del torneo, esta estructura se irá analogando como un Arbol binario.<br>
+El sistema cuenta con una base de inscripción de jugadores donde se pondrá en uso la TAD list cola para automatizar el uso.
+</p>
