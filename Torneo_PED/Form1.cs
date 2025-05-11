@@ -46,6 +46,17 @@ namespace Torneo_PED
             btnLimpiarLista.Font = PoppinsRegular;
         }
 
+        void AlertBox(Color backColor, Color color, string title, string text, Image Icon)
+        {
+            Alerta frm = new Alerta();
+            frm.BackColor = backColor;
+            frm.ColorAlertBox = color;
+            frm.TitleAlertBox = title;
+            frm.TextAlertBox = text;
+            frm.IconAlertBox = Icon;
+            frm.ShowDialog();
+        }
+
         private void ActualizarListas()
         {
             listBoxJugadoresRegistrados.Items.Clear();
@@ -130,13 +141,14 @@ namespace Torneo_PED
             try
             {
                 // Aquí iría la lógica para iniciar el torneo
-                MessageBox.Show("Torneo iniciado con éxito", "Éxito",
-                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AlertBox(Color.LightGreen, Color.DarkGreen, "Éxito", "Torneo iniciado con éxito", Properties.Resources.check);
+                dashboard frm = new dashboard();
+                frm.Show();
+                this.Hide();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al iniciar torneo: {ex.Message}", "Error",
-                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AlertBox(Color.LightPink, Color.DarkRed, "Error", $"Error al iniciar torneo: {ex.Message}", Properties.Resources.cancel);
             }
         }
 

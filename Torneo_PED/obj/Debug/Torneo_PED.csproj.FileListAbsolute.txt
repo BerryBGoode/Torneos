@@ -22,3 +22,4 @@ C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PE
 C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.pdb
 C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.dashboard.resources
 C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.Alerta.resources
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.participantes.resources

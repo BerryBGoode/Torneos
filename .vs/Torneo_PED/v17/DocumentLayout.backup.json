@@ -7,16 +7,36 @@
       "RelativeMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|solutionrelative:torneo_ped\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\torneo_ped\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|c:\\users\\canta\\onedrive\\documentos\\github\\torneos\\torneo_ped\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|solutionrelative:torneo_ped\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|c:\\users\\canta\\onedrive\\documentos\\github\\torneos\\torneo_ped\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|solutionrelative:torneo_ped\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\torneo_ped\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|c:\\users\\canta\\onedrive\\documentos\\github\\torneos\\torneo_ped\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|solutionrelative:torneo_ped\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|c:\\users\\canta\\onedrive\\documentos\\github\\torneos\\torneo_ped\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|solutionrelative:torneo_ped\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|c:\\users\\canta\\onedrive\\documentos\\github\\torneos\\torneo_ped\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|solutionrelative:torneo_ped\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|c:\\users\\canta\\onedrive\\documentos\\github\\torneos\\torneo_ped\\clasificacion_jugadores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|solutionrelative:torneo_ped\\clasificacion_jugadores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|c:\\users\\canta\\onedrive\\documentos\\github\\torneos\\torneo_ped\\clasificacion_jugadores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|solutionrelative:torneo_ped\\clasificacion_jugadores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|c:\\users\\canta\\onedrive\\documentos\\github\\torneos\\torneo_ped\\participantes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|solutionrelative:torneo_ped\\participantes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|c:\\users\\canta\\onedrive\\documentos\\github\\torneos\\torneo_ped\\participantes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{697BC622-9024-4E58-A0BB-08A213B88CEE}|Torneo_PED\\Torneo_PED.csproj|solutionrelative:torneo_ped\\participantes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,52 +62,115 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "dashboard.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\dashboard.cs",
-              "RelativeDocumentMoniker": "Torneo_PED\\dashboard.cs",
-              "ToolTip": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\dashboard.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Torneo_PED\\dashboard.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T05:02:27.499Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "dashboard.cs",
-              "DocumentMoniker": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\dashboard.cs",
-              "RelativeDocumentMoniker": "Torneo_PED\\dashboard.cs",
-              "ToolTip": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\dashboard.cs",
-              "RelativeToolTip": "Torneo_PED\\dashboard.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAADwvx0AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T04:42:01.652Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\Form1.cs",
               "RelativeDocumentMoniker": "Torneo_PED\\Form1.cs",
               "ToolTip": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\Form1.cs",
               "RelativeToolTip": "Torneo_PED\\Form1.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAcwBkAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAAAJEAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T04:21:58.904Z",
+              "WhenOpened": "2025-05-11T21:20:27.751Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\Program.cs",
+              "RelativeDocumentMoniker": "Torneo_PED\\Program.cs",
+              "ToolTip": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\Program.cs",
+              "RelativeToolTip": "Torneo_PED\\Program.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAjwBcAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T21:11:09.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "participantes.cs",
+              "DocumentMoniker": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\participantes.cs",
+              "RelativeDocumentMoniker": "Torneo_PED\\participantes.cs",
+              "ToolTip": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\participantes.cs",
+              "RelativeToolTip": "Torneo_PED\\participantes.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAtwBIAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T21:08:30.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "dashboard.cs",
+              "DocumentMoniker": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\dashboard.cs",
+              "RelativeDocumentMoniker": "Torneo_PED\\dashboard.cs",
+              "ToolTip": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\dashboard.cs*",
+              "RelativeToolTip": "Torneo_PED\\dashboard.cs*",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAIwHEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T20:53:08.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\Form1.cs",
               "RelativeDocumentMoniker": "Torneo_PED\\Form1.cs",
               "ToolTip": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\Form1.cs [Dise\u00F1o]",
               "RelativeToolTip": "Torneo_PED\\Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-11T03:53:32.114Z",
+              "WhenOpened": "2025-05-11T20:51:53.218Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "participantes.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\participantes.cs",
+              "RelativeDocumentMoniker": "Torneo_PED\\participantes.cs",
+              "ToolTip": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\participantes.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Torneo_PED\\participantes.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T20:46:30.192Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "clasificacion_jugadores.cs",
+              "DocumentMoniker": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\clasificacion_jugadores.cs",
+              "RelativeDocumentMoniker": "Torneo_PED\\clasificacion_jugadores.cs",
+              "ToolTip": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\clasificacion_jugadores.cs",
+              "RelativeToolTip": "Torneo_PED\\clasificacion_jugadores.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T18:39:48.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "clasificacion_jugadores.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\clasificacion_jugadores.cs",
+              "RelativeDocumentMoniker": "Torneo_PED\\clasificacion_jugadores.cs",
+              "ToolTip": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\clasificacion_jugadores.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Torneo_PED\\clasificacion_jugadores.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T18:39:19.527Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "dashboard.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\dashboard.cs",
+              "RelativeDocumentMoniker": "Torneo_PED\\dashboard.cs",
+              "ToolTip": "C:\\Users\\canta\\OneDrive\\Documentos\\GitHub\\Torneos\\Torneo_PED\\dashboard.cs [Dise\u00F1o]*",
+              "RelativeToolTip": "Torneo_PED\\dashboard.cs [Dise\u00F1o]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-11T05:02:27.499Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]
