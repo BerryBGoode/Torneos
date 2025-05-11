@@ -20,3 +20,5 @@ C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PE
 C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.csproj.CoreCompileInputs.cache
 C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.exe
 C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.pdb
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.dashboard.resources
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.Alerta.resources
