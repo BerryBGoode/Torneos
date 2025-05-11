@@ -21,7 +21,7 @@ namespace Torneo_PED
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new clasificacion_jugadores());
         }
 
         // Importar la función de la API de Windows para DPI Awareness

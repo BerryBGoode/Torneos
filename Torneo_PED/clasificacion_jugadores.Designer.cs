@@ -29,112 +29,140 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvClasificacion = new System.Windows.Forms.DataGridView();
             this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.victorias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.puntuacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRefrescar = new ProyectoADS.ClasesApariencia.RoundedButton();
+            this.roundedControl1 = new Torneo_PED.RoundedControl();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClasificacion)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(284, 50);
+            this.label1.Location = new System.Drawing.Point(263, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(408, 37);
+            this.label1.Size = new System.Drawing.Size(271, 31);
             this.label1.TabIndex = 1;
-            this.label1.Text = " Inscripción de jugadores ";
+            this.label1.Text = "Tabla de resultados";
             // 
-            // label2
+            // dgvClasificacion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(48, 133);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Fase mostrada: ";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvClasificacion.AllowUserToResizeColumns = false;
+            this.dgvClasificacion.AllowUserToResizeRows = false;
+            this.dgvClasificacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClasificacion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvClasificacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClasificacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numero,
             this.nombre,
             this.victorias,
             this.puntuacion});
-            this.dataGridView1.Location = new System.Drawing.Point(96, 216);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(859, 321);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvClasificacion.Location = new System.Drawing.Point(85, 173);
+            this.dgvClasificacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvClasificacion.Name = "dgvClasificacion";
+            this.dgvClasificacion.ReadOnly = true;
+            this.dgvClasificacion.RowHeadersWidth = 62;
+            this.dgvClasificacion.RowTemplate.Height = 28;
+            this.dgvClasificacion.Size = new System.Drawing.Size(764, 454);
+            this.dgvClasificacion.TabIndex = 3;
             // 
             // numero
             // 
             this.numero.HeaderText = "#";
             this.numero.MinimumWidth = 8;
             this.numero.Name = "numero";
-            this.numero.Width = 150;
+            this.numero.ReadOnly = true;
             // 
             // nombre
             // 
             this.nombre.HeaderText = "Nombre";
             this.nombre.MinimumWidth = 8;
             this.nombre.Name = "nombre";
-            this.nombre.Width = 150;
+            this.nombre.ReadOnly = true;
             // 
             // victorias
             // 
             this.victorias.HeaderText = "Victorias";
             this.victorias.MinimumWidth = 8;
             this.victorias.Name = "victorias";
-            this.victorias.Width = 150;
+            this.victorias.ReadOnly = true;
             // 
             // puntuacion
             // 
             this.puntuacion.HeaderText = "Puntuación";
             this.puntuacion.MinimumWidth = 8;
             this.puntuacion.Name = "puntuacion";
-            this.puntuacion.Width = 150;
+            this.puntuacion.ReadOnly = true;
             // 
-            // button1
+            // panel1
             // 
-            this.button1.Location = new System.Drawing.Point(381, 576);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(208, 50);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Refrecar clasificación";
-            this.button1.UseVisualStyleBackColor = true;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(905, 49);
+            this.panel1.TabIndex = 7;
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
-            // label3
+            // pictureBox1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(207, 133);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(191, 25);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Después de Cuartos";
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::Torneo_PED.Properties.Resources.closeX;
+            this.pictureBox1.Location = new System.Drawing.Point(853, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 39);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.btnRefrescar.BorderColor = System.Drawing.Color.Transparent;
+            this.btnRefrescar.BorderRadius = 10;
+            this.btnRefrescar.DisabledTextColor = System.Drawing.Color.Empty;
+            this.btnRefrescar.FlatAppearance.BorderSize = 0;
+            this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefrescar.ForeColor = System.Drawing.Color.White;
+            this.btnRefrescar.Location = new System.Drawing.Point(329, 649);
+            this.btnRefrescar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(258, 53);
+            this.btnRefrescar.TabIndex = 6;
+            this.btnRefrescar.Text = "Refrescar clasificación";
+            this.btnRefrescar.TextColor = System.Drawing.Color.White;
+            this.btnRefrescar.UseVisualStyleBackColor = false;
+            // 
+            // roundedControl1
+            // 
+            this.roundedControl1.CornerRadius = 15;
+            this.roundedControl1.TargetControl = this;
             // 
             // clasificacion_jugadores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1018, 666);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label2);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(905, 733);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnRefrescar);
+            this.Controls.Add(this.dgvClasificacion);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "clasificacion_jugadores";
             this.Text = "clasificacion_jugadores";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClasificacion)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,13 +171,14 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvClasificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn victorias;
         private System.Windows.Forms.DataGridViewTextBoxColumn puntuacion;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
+        private ProyectoADS.ClasesApariencia.RoundedButton btnRefrescar;
+        private RoundedControl roundedControl1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -63,6 +63,16 @@ namespace Torneo_PED.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Arrow_left {
+            get {
+                object obj = ResourceManager.GetObject("Arrow_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap closeX {
             get {
                 object obj = ResourceManager.GetObject("closeX", resourceCulture);
