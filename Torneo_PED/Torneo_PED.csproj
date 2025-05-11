@@ -49,9 +49,16 @@
     <Compile Include="Clases\Cola.cs" />
     <Compile Include="Clases\DatabaseConfig.cs" />
     <Compile Include="Clases\DatabaseConnection.cs" />
+    <Compile Include="Clases\Fuentes.cs" />
     <Compile Include="Clases\GestorInscripciones.cs" />
     <Compile Include="Clases\InscripcionesRepository.cs" />
     <Compile Include="Clases\JugadoresRepository.cs" />
+    <Compile Include="Clases\RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Clases\RoundedControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="clasificacion_jugadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +87,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -90,9 +98,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\Poppins-Bold.ttf" />
+    <None Include="Resources\Poppins-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeX.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

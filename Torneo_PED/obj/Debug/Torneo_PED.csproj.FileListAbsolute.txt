@@ -9,3 +9,14 @@ C:\Users\Javi\Desktop\Torneo_PED\Torneo_PED\obj\Debug\Torneo_PED.csproj.Generate
 C:\Users\Javi\Desktop\Torneo_PED\Torneo_PED\obj\Debug\Torneo_PED.csproj.CoreCompileInputs.cache
 C:\Users\Javi\Desktop\Torneo_PED\Torneo_PED\obj\Debug\Torneo_PED.exe
 C:\Users\Javi\Desktop\Torneo_PED\Torneo_PED\obj\Debug\Torneo_PED.pdb
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\bin\Debug\Torneo_PED.exe.config
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\bin\Debug\Torneo_PED.exe
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\bin\Debug\Torneo_PED.pdb
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.csproj.AssemblyReference.cache
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.clasificacion_jugadores.resources
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.Form1.resources
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.Properties.Resources.resources
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.csproj.GenerateResource.cache
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.csproj.CoreCompileInputs.cache
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.exe
+C:\Users\canta\OneDrive\Documentos\GitHub\Torneos\Torneo_PED\obj\Debug\Torneo_PED.pdb
