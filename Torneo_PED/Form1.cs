@@ -28,9 +28,8 @@ namespace Torneo_PED
         public Form1()
         {
             InitializeComponent();
-            /*
             _gestorInscripciones = new GestorInscripciones(CUPO_MAXIMO);
-            ActualizarListas();*/
+            ActualizarListas();
             Fuentes fuentes = new Fuentes();
             Font PoppinsBold = new Font(fuentes.CargarFuente(Properties.Resources.Poppins_Bold), 20, FontStyle.Bold);
             Font PoppinsRegular = new Font(fuentes.CargarFuente(Properties.Resources.Poppins_Regular), 11);
@@ -77,32 +76,7 @@ namespace Torneo_PED
                 listBoxJugadoresEspera.Items.Add(jugador);
             }
 
-            lblCupo.Text = $"{confirmados.Count}/9";
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Aquí iría la lógica para limpiar las listas
-                MessageBox.Show("Listas limpiadas correctamente", "Éxito",
-                              MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al limpiar listas: {ex.Message}", "Error",
-                              MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            lblCupo.Text = $"{confirmados.Count}/8";
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -126,13 +100,12 @@ namespace Torneo_PED
                 _gestorInscripciones.InscribirJugador(nombreJugador);
                 ActualizarListas();
                 txtNombreJugador.Clear();
-                MessageBox.Show("Jugador inscrito correctamente", "Éxito",
-                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AlertBox(Color.LightGreen, Color.DarkGreen, "Éxito", "Jugador inscrito correctamente", Properties.Resources.check);
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al inscribir jugador: {ex.Message}", "Error",
-                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AlertBox(Color.LightPink, Color.DarkRed, "Error", $"{ex.Message}", Properties.Resources.cancel);
             }
         }
 
@@ -140,11 +113,17 @@ namespace Torneo_PED
         {
             try
             {
-                // Aquí iría la lógica para iniciar el torneo
-                AlertBox(Color.LightGreen, Color.DarkGreen, "Éxito", "Torneo iniciado con éxito", Properties.Resources.check);
-                dashboard frm = new dashboard();
-                frm.Show();
-                this.Hide();
+                if(_gestorInscripciones.ObtenerJugadoresRegistrados().Count==8)
+                {
+                    AlertBox(Color.LightGreen, Color.DarkGreen, "Éxito", "Torneo iniciado con éxito", Properties.Resources.check);
+                    // Aquí iría la lógica para iniciar el torneo
+                    dashboard frm = new dashboard();
+                    frm.Show();
+                    this.Hide();
+                }    
+                else
+                    AlertBox(Color.LightPink, Color.DarkRed, "Error", $"Se requieren 8 participantes", Properties.Resources.cancel);
+                
             }
             catch (Exception ex)
             {
@@ -159,6 +138,41 @@ namespace Torneo_PED
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void btnLimpiarLista_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Aquí iría la lógica para limpiar las listas
+                MessageBox.Show("Listas limpiadas correctamente", "Éxito",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al limpiar listas: {ex.Message}", "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void listBoxJugadoresRegistrados_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (listBoxJugadoresRegistrados.SelectedItem != null)
+            {
+                try
+                {
+                    string selectedItem = listBoxJugadoresRegistrados.SelectedItem.ToString();
+                    _gestorInscripciones.EliminarJugadores(selectedItem);
+                    ActualizarListas();
+                    txtNombreJugador.Clear();
+                    AlertBox(Color.LightGreen, Color.DarkGreen, "Éxito", "Jugador eliminado correctamente", Properties.Resources.check);
+
+                }
+                catch (Exception ex)
+                {
+                    AlertBox(Color.LightPink, Color.DarkRed, "Error", $"{ex.Message}", Properties.Resources.cancel);
+                }
             }
         }
     }

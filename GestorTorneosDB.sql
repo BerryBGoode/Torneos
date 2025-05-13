@@ -24,7 +24,8 @@ CREATE TABLE Inscripciones (
     IdJugador          INT               NOT NULL,
     FechaInscripcion   DATETIME          NOT NULL DEFAULT GETDATE(),
     IdEstado		   INT				 NOT NULL,
-	CONSTRAINT IdJugadorInscripcion FOREIGN KEY (IdJugador) REFERENCES Jugadores(IdJugador),
+	CONSTRAINT IdJugadorInscripcion FOREIGN KEY (IdJugador) REFERENCES Jugadores(IdJugador)
+	ON DELETE CASCADE,
     CONSTRAINT IdEstadoInscripcion  FOREIGN KEY (IdEstado) REFERENCES Estados(IdEstado)
 );
 GO

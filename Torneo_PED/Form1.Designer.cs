@@ -78,12 +78,14 @@
             // listBoxJugadoresRegistrados
             // 
             this.listBoxJugadoresRegistrados.FormattingEnabled = true;
+            this.listBoxJugadoresRegistrados.HorizontalScrollbar = true;
             this.listBoxJugadoresRegistrados.ItemHeight = 16;
             this.listBoxJugadoresRegistrados.Location = new System.Drawing.Point(60, 305);
             this.listBoxJugadoresRegistrados.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBoxJugadoresRegistrados.Name = "listBoxJugadoresRegistrados";
             this.listBoxJugadoresRegistrados.Size = new System.Drawing.Size(265, 244);
             this.listBoxJugadoresRegistrados.TabIndex = 4;
+            this.listBoxJugadoresRegistrados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBoxJugadoresRegistrados_MouseClick);
             // 
             // label3
             // 
@@ -108,6 +110,7 @@
             // listBoxJugadoresEspera
             // 
             this.listBoxJugadoresEspera.FormattingEnabled = true;
+            this.listBoxJugadoresEspera.HorizontalScrollbar = true;
             this.listBoxJugadoresEspera.ItemHeight = 16;
             this.listBoxJugadoresEspera.Location = new System.Drawing.Point(397, 305);
             this.listBoxJugadoresEspera.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -151,6 +154,7 @@
             this.btnLimpiarLista.Text = "Limpiar lista";
             this.btnLimpiarLista.TextColor = System.Drawing.Color.White;
             this.btnLimpiarLista.UseVisualStyleBackColor = false;
+            this.btnLimpiarLista.Click += new System.EventHandler(this.btnLimpiarLista_Click);
             // 
             // btnIniciarTorneo
             // 

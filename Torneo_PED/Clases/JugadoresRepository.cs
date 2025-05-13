@@ -30,6 +30,16 @@ namespace Torneo_PED.Clases
             _dbConnection.ExecuteNonQuery(query, parameters);
         }
 
+        public void EliminarJugador(string nombre)
+        {
+            string query = "DELETE FROM Jugadores WHERE Nombre = @nombre";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+            new SqlParameter("@nombre", nombre)
+            };
+            _dbConnection.ExecuteNonQuery(query, parameters);
+        }
+
         public List<string> ObtenerTodosJugadores()
         {
             string query = "SELECT Nombre FROM Jugadores ORDER BY Nombre";

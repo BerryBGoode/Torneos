@@ -89,6 +89,26 @@ namespace Torneo_PED.Clases
             }
         }
 
+        public void EliminarJugadores(string nombre)
+        {
+            try
+            {
+                var jugadoresRepo = new JugadoresRepository();
+                jugadoresRepo.EliminarJugador(nombre);
+                // Asignar estado según cupo disponible
+                if (_colaPrincipal.Count < _cupoMaximo && _colaEspera.Count!=0)
+                {
+                    List<string> cola = _colaEspera.ObtenerElementos();
+                    _inscripcionesRepo.RegistrarInscripcion(cola[0], 2); // 2 = En espera
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception($"Error al eliminar jugador: {ex.Message}", ex);
+            }
+        }
+
         public List<string> ObtenerJugadoresRegistrados() => _colaPrincipal.ObtenerElementos();
         public List<string> ObtenerJugadoresEnEspera() => _colaEspera.ObtenerElementos();
     }
