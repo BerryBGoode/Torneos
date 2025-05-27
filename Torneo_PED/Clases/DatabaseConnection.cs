@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Torneo_PED.Clases
 {
-    public class DatabaseConnection
+    public class DatabaseConnection : IDisposable
     {
-        private SqlConnection _connection;
+        private readonly SqlConnection _connection;
 
         public DatabaseConnection()
         {
@@ -24,101 +24,97 @@ namespace Torneo_PED.Clases
                 _connection.Open();
             }
         }
-    
-    public void Close()
-    {
-        if (_connection.State != ConnectionState.Closed)
+
+        public void Close()
         {
-            _connection.Close();
-        }
-    }
-    
-    public DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
-    {
-        DataTable dataTable = new DataTable();
-        
-        try
-        {
-            Open();
-            using (SqlCommand command = new SqlCommand(query, _connection))
+            if (_connection.State != ConnectionState.Closed)
             {
-                if (parameters != null)
-                {
-                    command.Parameters.AddRange(parameters);
-                }
-                
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    dataTable.Load(reader);
-                }
-            }
-            return dataTable;
-        }
-        catch (SqlException ex)
-        {
-            throw new Exception($"Error en ExecuteQuery: {ex.Message}", ex);
-        }
-        finally
-        {
-            Close();
-        }
-    }
-    
-    public int ExecuteNonQuery(string commandText, SqlParameter[] parameters = null)
-    {
-        try
-        {
-            Open();
-            using (SqlCommand command = new SqlCommand(commandText, _connection))
-            {
-                if (parameters != null)
-                {
-                    command.Parameters.AddRange(parameters);
-                }
-                return command.ExecuteNonQuery();
+                _connection.Close();
             }
         }
-        catch (SqlException ex)
+
+        public DataTable ExecuteQuery(string query, params SqlParameter[] parameters)
         {
-            throw new Exception($"Error en ExecuteNonQuery: {ex.Message}", ex);
-        }
-        finally
-        {
-            Close();
-        }
-    }
-    
-    public object ExecuteScalar(string commandText, SqlParameter[] parameters = null)
-    {
-        try
-        {
-            Open();
-            using (SqlCommand command = new SqlCommand(commandText, _connection))
+            try
             {
-                if (parameters != null)
+                Open();
+                using (var command = new SqlCommand(query, _connection))
                 {
-                    command.Parameters.AddRange(parameters);
+                    if (parameters != null && parameters.Length > 0)
+                    {
+                        command.Parameters.AddRange(parameters);
+                    }
+
+                    using (var adapter = new SqlDataAdapter(command))
+                    {
+                        var dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        return dataTable;
+                    }
                 }
-                return command.ExecuteScalar();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception($"Error en ExecuteQuery: {ex.Message}", ex);
+            }
+            finally
+            {
+                Close();
             }
         }
-        catch (SqlException ex)
+
+        public int ExecuteNonQuery(string commandText, params SqlParameter[] parameters)
         {
-            throw new Exception($"Error en ExecuteScalar: {ex.Message}", ex);
+            try
+            {
+                Open();
+                using (var command = new SqlCommand(commandText, _connection))
+                {
+                    if (parameters != null && parameters.Length > 0)
+                    {
+                        command.Parameters.AddRange(parameters);
+                    }
+                    return command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception($"Error en ExecuteNonQuery: {ex.Message}", ex);
+            }
+            finally
+            {
+                Close();
+            }
         }
-        finally
+
+        public object ExecuteScalar(string commandText, params SqlParameter[] parameters)
+        {
+            try
+            {
+                Open();
+                using (var command = new SqlCommand(commandText, _connection))
+                {
+                    if (parameters != null && parameters.Length > 0)
+                    {
+                        command.Parameters.AddRange(parameters);
+                    }
+                    return command.ExecuteScalar();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception($"Error en ExecuteScalar: {ex.Message}", ex);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void Dispose()
         {
             Close();
+            _connection?.Dispose();
         }
-    }
-    
-    public void Dispose()
-    {
-        if (_connection != null)
-        {
-            Close();
-            _connection.Dispose();
-        }
-    }
     }
 }

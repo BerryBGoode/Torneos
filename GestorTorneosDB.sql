@@ -9,6 +9,9 @@ GO
 CREATE TABLE Jugadores (
     IdJugador       INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
     Nombre          NVARCHAR(100)      NOT NULL,
+    Apellido        NVARCHAR(100)      NOT NULL,
+    Edad            INT                NOT NULL,
+    DUI             NVARCHAR(10)       NOT NULL UNIQUE,
     Puntuacion      INT                NOT NULL DEFAULT 0
 );
 GO
@@ -59,3 +62,5 @@ INSERT INTO Estados (Estado) VALUES
 ('Cancelado'),      -- Estado 4: Inscripción cancelada
 ('Completado');     -- Estado 5: Torneo completado
 GO
+
+SELECT IdJugador, Nombre, Apellido, Edad, DUI, Puntuacion FROM Jugadores

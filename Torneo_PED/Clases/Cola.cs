@@ -55,5 +55,15 @@ namespace Torneo_PED.Clases
         {
             return _elementos.Contains(elemento);
         }
+
+        // Nuevo método para ver el primer elemento sin desencolar
+        public T PrimerElemento()
+        {
+            if (EstaVacia)
+            {
+                throw new InvalidOperationException("La cola está vacía");
+            }
+            return _elementos.First.Value;
+        }
     }
 }

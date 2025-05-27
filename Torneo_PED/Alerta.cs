@@ -43,7 +43,7 @@ namespace Torneo_PED
 
         public string TitleAlertBox
         {
-            get { return lblTextAlertBox.Text; }
+            get { return lblTitleAlertBox.Text; }
             set { lblTitleAlertBox.Text = value; }
         }
 

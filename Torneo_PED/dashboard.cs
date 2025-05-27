@@ -113,5 +113,21 @@ namespace Torneo_PED
             clasificacion_jugadores frm = new clasificacion_jugadores() { TopLevel = false, TopMost = true };
             CargarFormPanel(frm);
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PanelResultados_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PanelResultados_Click(object sender, EventArgs e)
+        {
+            Clasificaciones frm = new Clasificaciones() { TopLevel = false, TopMost = true };
+            CargarFormPanel(frm);
+        }
     }
 }

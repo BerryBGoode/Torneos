@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProyectoADS.ClasesApariencia
+namespace Torneo_PED
 {
-   public class RoundedButton:Button
+   public class RoundedButton : Button
    {
         private int borderSize = 0;
         private int borderRadius = 10;
@@ -74,33 +74,53 @@ namespace ProyectoADS.ClasesApariencia
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
-            base.OnPaint(pevent);
+            // Validaciones básicas de seguridad
+            if (pevent?.Graphics == null) return;
+
+            // Ajustar borderRadius si es necesario
+            if (borderRadius > this.Width || borderRadius > this.Height)
+                borderRadius = Math.Min(this.Width, this.Height) / 2;
+
+            if (borderRadius < 0) borderRadius = 0;
+
             Rectangle rectSurface = this.ClientRectangle;
             Rectangle rectBorder = Rectangle.Inflate(rectSurface, -borderSize, -borderSize);
             int smoothSize = 2;
-            using (GraphicsPath pathSurface = GetFigurePath(rectBorder, borderRadius))
-            using(GraphicsPath pathBorder = GetFigurePath(rectBorder,borderRadius-borderSize))
-            using(Pen penSurface = new Pen(this.Parent.BackColor,smoothSize))
-            using(Pen penBorder = new Pen(borderColor,borderSize))
+
+            // Solo proceder si las dimensiones son válidas
+            if (rectSurface.Width > 0 && rectSurface.Height > 0)
             {
-                pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                this.Region = new Region(pathSurface);
-                pevent.Graphics.DrawPath(penSurface, pathSurface);
-                if (borderSize >= 1)
-                    pevent.Graphics.DrawPath(penBorder, pathBorder);
+                using (GraphicsPath pathSurface = GetFigurePath(rectSurface, borderRadius))
+                using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRadius))
+                using (Pen penSurface = new Pen(this.Parent?.BackColor ?? Color.Black, smoothSize))
+                using (Pen penBorder = new Pen(borderColor, borderSize))
+                {
+                    pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    this.Region = new Region(pathSurface);
+                    pevent.Graphics.DrawPath(penSurface, pathSurface);
+
+                    if (borderSize >= 1)
+                        pevent.Graphics.DrawPath(penBorder, pathBorder);
+                }
             }
-            if (!Enabled)
+
+            // Llamar al base DESPUÉS de nuestras operaciones personalizadas
+            base.OnPaint(pevent);
+
+            // Manejar texto deshabilitado
+            if (!Enabled && DisabledTextColor != Color.Empty)
             {
-                StringFormat format = new StringFormat();
-                format.Alignment = StringAlignment.Center;
-                format.Alignment = StringAlignment.Center;
                 using (SolidBrush brush = new SolidBrush(DisabledTextColor))
                 {
+                    StringFormat format = new StringFormat
+                    {
+                        Alignment = StringAlignment.Center,
+                        LineAlignment = StringAlignment.Center
+                    };
                     pevent.Graphics.DrawString(Text, Font, brush, ClientRectangle, format);
                 }
             }
-            else
-                ForeColor = TextColor;
         }
+
     }
 }

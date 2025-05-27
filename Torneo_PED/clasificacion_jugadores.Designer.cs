@@ -36,7 +36,7 @@
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.victorias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.puntuacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnRefrescar = new ProyectoADS.ClasesApariencia.RoundedButton();
+            this.btnRefrescar = new Torneo_PED.RoundedButton();
             this.roundedControl1 = new Torneo_PED.RoundedControl();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClasificacion)).BeginInit();
             this.SuspendLayout();
@@ -166,7 +166,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn victorias;
         private System.Windows.Forms.DataGridViewTextBoxColumn puntuacion;
-        private ProyectoADS.ClasesApariencia.RoundedButton btnRefrescar;
+        private Torneo_PED.RoundedButton btnRefrescar;
         private RoundedControl roundedControl1;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
@@ -9,34 +10,128 @@ using System.Threading.Tasks;
 
 namespace Torneo_PED
 {
-    public class Fuentes
+    public class Fuentes : IDisposable
     {
         [DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
 
-        //Función de la DLL externa
-        private static extern IntPtr AddFontMemResourceEx(IntPtr pFileView, uint cjSize, IntPtr pvResrved,[In] ref uint pNumFonts);
+        private readonly List<IntPtr> _fontMemoryHandles = new List<IntPtr>();
+        private readonly PrivateFontCollection _fontCollection = new PrivateFontCollection();
+        private bool _disposed = false;
+        private readonly object _lock = new object();
 
-        public FontFamily CargarFuente(byte[] fuente)
+        public FontFamily CargarFuente(byte[] fontData)
         {
-            FontFamily fuentenueva;
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(Fuentes));
 
-            //asignar memoria y copiar bytes
-            IntPtr data = Marshal.AllocCoTaskMem(fuente.Length);
-            Marshal.Copy(fuente, 0, data, fuente.Length);
+            if (fontData == null || fontData.Length == 0)
+                throw new ArgumentNullException(nameof(fontData));
 
-            uint cFonts = 0;
-            AddFontMemResourceEx(data, (uint)fuente.Length, IntPtr.Zero, ref cFonts);
+            lock (_lock)
+            {
+                try
+                {
+                    IntPtr fontPtr = Marshal.AllocCoTaskMem(fontData.Length);
+                    Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
 
-            PrivateFontCollection fontcollection = new PrivateFontCollection();
-            //Pasar fuente a PrivateFontCollection
-            fontcollection.AddMemoryFont(data, fuente.Length);
+                    uint dummy = 0;
+                    IntPtr fontResource = AddFontMemResourceEx(fontPtr, (uint)fontData.Length, IntPtr.Zero, ref dummy);
 
-            //Liberar memoria
-            Marshal.FreeCoTaskMem(data);
+                    if (fontResource == IntPtr.Zero)
+                    {
+                        Marshal.FreeCoTaskMem(fontPtr);
+                        throw new Exception("Failed to add font resource");
+                    }
 
-            fuentenueva = fontcollection.Families[0];
+                    _fontCollection.AddMemoryFont(fontPtr, fontData.Length);
+                    _fontMemoryHandles.Add(fontPtr);
 
-            return fuentenueva;
+                    // Verificar que la fuente se cargó correctamente
+                    if (_fontCollection.Families.Length == 0)
+                        throw new Exception("No font families loaded");
+
+                    var lastFamily = _fontCollection.Families[_fontCollection.Families.Length - 1];
+
+                    if (!lastFamily.IsStyleAvailable(FontStyle.Regular))
+                        throw new Exception("Font does not support regular style");
+
+                    return lastFamily;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error loading font: {ex.Message}");
+                    throw new FontLoadException("Failed to load font", ex);
+                }
+            }
+        }
+
+        public Font CrearFont(FontFamily family, float emSize, FontStyle style = FontStyle.Regular)
+        {
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(Fuentes));
+
+            if (family == null)
+                throw new ArgumentNullException(nameof(family));
+
+            try
+            {
+                if (!family.IsStyleAvailable(style))
+                    style = FontStyle.Regular;
+
+                return new Font(family, emSize, style, GraphicsUnit.Pixel);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error creating font: {ex.Message}");
+                return SystemFonts.DefaultFont;
+            }
+        }
+
+        public void Dispose()
+        {
+            lock (_lock)
+            {
+                if (_disposed) return;
+
+                foreach (var handle in _fontMemoryHandles)
+                {
+                    try
+                    {
+                        Marshal.FreeCoTaskMem(handle);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"Error freeing font memory: {ex.Message}");
+                    }
+                }
+
+                _fontMemoryHandles.Clear();
+
+                try
+                {
+                    _fontCollection.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error disposing font collection: {ex.Message}");
+                }
+
+                _disposed = true;
+            }
+        }
+
+        ~Fuentes()
+        {
+            Dispose();
+        }
+    }
+
+    public class FontLoadException : Exception
+    {
+        public FontLoadException(string message, Exception innerException)
+            : base(message, innerException)
+        {
         }
     }
 }

@@ -67,8 +67,9 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1072, 49);
+            this.panel1.Size = new System.Drawing.Size(1206, 61);
             this.panel1.TabIndex = 16;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
@@ -76,9 +77,9 @@
             // 
             this.lblNombreTorneo.AutoSize = true;
             this.lblNombreTorneo.ForeColor = System.Drawing.Color.White;
-            this.lblNombreTorneo.Location = new System.Drawing.Point(26, 13);
+            this.lblNombreTorneo.Location = new System.Drawing.Point(29, 16);
             this.lblNombreTorneo.Name = "lblNombreTorneo";
-            this.lblNombreTorneo.Size = new System.Drawing.Size(62, 16);
+            this.lblNombreTorneo.Size = new System.Drawing.Size(75, 20);
             this.lblNombreTorneo.TabIndex = 18;
             this.lblNombreTorneo.Text = "Mi torneo";
             // 
@@ -86,9 +87,10 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::Torneo_PED.Properties.Resources.close_white;
-            this.pictureBox1.Location = new System.Drawing.Point(1027, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(1155, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 39);
+            this.pictureBox1.Size = new System.Drawing.Size(45, 49);
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -101,9 +103,10 @@
             this.panel2.Controls.Add(this.PanelClasificaciones);
             this.panel2.Controls.Add(this.PanelParticipantes);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 49);
+            this.panel2.Location = new System.Drawing.Point(0, 61);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(246, 641);
+            this.panel2.Size = new System.Drawing.Size(277, 801);
             this.panel2.TabIndex = 17;
             // 
             // PanelGestion
@@ -112,9 +115,10 @@
             this.PanelGestion.Controls.Add(this.label4);
             this.PanelGestion.Controls.Add(this.pictureBox5);
             this.PanelGestion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelGestion.Location = new System.Drawing.Point(0, 323);
+            this.PanelGestion.Location = new System.Drawing.Point(0, 404);
+            this.PanelGestion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PanelGestion.Name = "PanelGestion";
-            this.PanelGestion.Size = new System.Drawing.Size(246, 60);
+            this.PanelGestion.Size = new System.Drawing.Size(277, 75);
             this.PanelGestion.TabIndex = 19;
             this.PanelGestion.MouseEnter += new System.EventHandler(this.PanelGestion_MouseEnter);
             this.PanelGestion.MouseLeave += new System.EventHandler(this.PanelGestion_MouseLeave);
@@ -122,9 +126,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(74, 13);
+            this.label4.Location = new System.Drawing.Point(83, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 16);
+            this.label4.Size = new System.Drawing.Size(65, 20);
             this.label4.TabIndex = 22;
             this.label4.Text = "Gestión";
             this.label4.MouseEnter += new System.EventHandler(this.PanelGestion_MouseEnter);
@@ -135,8 +139,9 @@
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox5.Image = global::Torneo_PED.Properties.Resources.Tool;
             this.pictureBox5.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(68, 60);
+            this.pictureBox5.Size = new System.Drawing.Size(76, 75);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox5.TabIndex = 20;
             this.pictureBox5.TabStop = false;
@@ -149,21 +154,25 @@
             this.PanelResultados.Controls.Add(this.label3);
             this.PanelResultados.Controls.Add(this.pictureBox4);
             this.PanelResultados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelResultados.Location = new System.Drawing.Point(0, 255);
+            this.PanelResultados.Location = new System.Drawing.Point(0, 319);
+            this.PanelResultados.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PanelResultados.Name = "PanelResultados";
-            this.PanelResultados.Size = new System.Drawing.Size(246, 60);
+            this.PanelResultados.Size = new System.Drawing.Size(277, 75);
             this.PanelResultados.TabIndex = 19;
+            this.PanelResultados.Click += new System.EventHandler(this.PanelResultados_Click);
+            this.PanelResultados.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelResultados_Paint);
             this.PanelResultados.MouseEnter += new System.EventHandler(this.PanelResultados_MouseEnter);
             this.PanelResultados.MouseLeave += new System.EventHandler(this.PanelResultados_MouseLeave);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(72, 13);
+            this.label3.Location = new System.Drawing.Point(81, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 16);
+            this.label3.Size = new System.Drawing.Size(90, 20);
             this.label3.TabIndex = 21;
             this.label3.Text = "Resultados";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             this.label3.MouseEnter += new System.EventHandler(this.PanelResultados_MouseEnter);
             this.label3.MouseLeave += new System.EventHandler(this.PanelResultados_MouseLeave);
             // 
@@ -172,8 +181,9 @@
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox4.Image = global::Torneo_PED.Properties.Resources.Calendar;
             this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(68, 60);
+            this.pictureBox4.Size = new System.Drawing.Size(76, 75);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox4.TabIndex = 20;
             this.pictureBox4.TabStop = false;
@@ -186,9 +196,10 @@
             this.PanelClasificaciones.Controls.Add(this.label2);
             this.PanelClasificaciones.Controls.Add(this.pictureBox3);
             this.PanelClasificaciones.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelClasificaciones.Location = new System.Drawing.Point(0, 187);
+            this.PanelClasificaciones.Location = new System.Drawing.Point(0, 234);
+            this.PanelClasificaciones.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PanelClasificaciones.Name = "PanelClasificaciones";
-            this.PanelClasificaciones.Size = new System.Drawing.Size(246, 60);
+            this.PanelClasificaciones.Size = new System.Drawing.Size(277, 75);
             this.PanelClasificaciones.TabIndex = 19;
             this.PanelClasificaciones.Click += new System.EventHandler(this.PanelClasificaciones_Click);
             this.PanelClasificaciones.MouseEnter += new System.EventHandler(this.PanelClasificaciones_MouseEnter);
@@ -197,9 +208,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(72, 11);
+            this.label2.Location = new System.Drawing.Point(81, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 16);
+            this.label2.Size = new System.Drawing.Size(114, 20);
             this.label2.TabIndex = 20;
             this.label2.Text = "Clasificaciones";
             this.label2.Click += new System.EventHandler(this.PanelClasificaciones_Click);
@@ -211,8 +222,9 @@
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox3.Image = global::Torneo_PED.Properties.Resources.Award;
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(68, 60);
+            this.pictureBox3.Size = new System.Drawing.Size(76, 75);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox3.TabIndex = 20;
             this.pictureBox3.TabStop = false;
@@ -226,9 +238,10 @@
             this.PanelParticipantes.Controls.Add(this.label1);
             this.PanelParticipantes.Controls.Add(this.pictureBox2);
             this.PanelParticipantes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelParticipantes.Location = new System.Drawing.Point(0, 119);
+            this.PanelParticipantes.Location = new System.Drawing.Point(0, 149);
+            this.PanelParticipantes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PanelParticipantes.Name = "PanelParticipantes";
-            this.PanelParticipantes.Size = new System.Drawing.Size(246, 60);
+            this.PanelParticipantes.Size = new System.Drawing.Size(277, 75);
             this.PanelParticipantes.TabIndex = 18;
             this.PanelParticipantes.Click += new System.EventHandler(this.PanelParticipantes_Click);
             this.PanelParticipantes.MouseEnter += new System.EventHandler(this.PanelParticipantes_MouseEnter);
@@ -237,9 +250,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 9);
+            this.label1.Location = new System.Drawing.Point(81, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 16);
+            this.label1.Size = new System.Drawing.Size(101, 20);
             this.label1.TabIndex = 19;
             this.label1.Text = "Participantes";
             this.label1.Click += new System.EventHandler(this.PanelParticipantes_Click);
@@ -251,8 +264,9 @@
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox2.Image = global::Torneo_PED.Properties.Resources.gmail_groups;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(68, 60);
+            this.pictureBox2.Size = new System.Drawing.Size(76, 75);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 19;
             this.pictureBox2.TabStop = false;
@@ -263,16 +277,18 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.panel7.Location = new System.Drawing.Point(244, 49);
+            this.panel7.Location = new System.Drawing.Point(274, 61);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(5, 640);
+            this.panel7.Size = new System.Drawing.Size(6, 800);
             this.panel7.TabIndex = 18;
             // 
             // Contenedor
             // 
-            this.Contenedor.Location = new System.Drawing.Point(252, 51);
+            this.Contenedor.Location = new System.Drawing.Point(284, 64);
+            this.Contenedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Contenedor.Name = "Contenedor";
-            this.Contenedor.Size = new System.Drawing.Size(815, 627);
+            this.Contenedor.Size = new System.Drawing.Size(917, 784);
             this.Contenedor.TabIndex = 19;
             // 
             // roundedControl1
@@ -282,15 +298,16 @@
             // 
             // dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1072, 690);
+            this.ClientSize = new System.Drawing.Size(1206, 862);
             this.Controls.Add(this.Contenedor);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "dashboard";

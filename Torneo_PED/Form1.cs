@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Torneo_PED.Clases;
+using Torneo_PED.Clases.Controlador;
+using Torneo_PED.Clases.Modelo;
 
 
 namespace Torneo_PED
@@ -23,26 +25,53 @@ namespace Torneo_PED
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        private readonly GestorInscripciones _gestorInscripciones;
+        private readonly JugadorController _jugadorController;
         private const int CUPO_MAXIMO = 8;
         public Form1()
         {
             InitializeComponent();
-            _gestorInscripciones = new GestorInscripciones(CUPO_MAXIMO);
+            _jugadorController = new JugadorController(CUPO_MAXIMO);
+
+            //ConfigurarFuentes();
             ActualizarListas();
-            Fuentes fuentes = new Fuentes();
-            Font PoppinsBold = new Font(fuentes.CargarFuente(Properties.Resources.Poppins_Bold), 20, FontStyle.Bold);
-            Font PoppinsRegular = new Font(fuentes.CargarFuente(Properties.Resources.Poppins_Regular), 11);
-            label1.Font = PoppinsBold;
-            btnInscribir.Font = PoppinsRegular;
-            label2.Font = PoppinsRegular;
-            label3.Font = PoppinsRegular;
-            label4.Font = PoppinsRegular;
-            txtNombreJugador.Font = PoppinsRegular;
-            listBoxJugadoresRegistrados.Font = PoppinsRegular;
-            listBoxJugadoresEspera.Font = PoppinsRegular;
-            btnIniciarTorneo.Font = PoppinsRegular;
-            btnLimpiarLista.Font = PoppinsRegular;
+        }
+
+        //private void ConfigurarFuentes()
+        //{
+        //    Fuentes fuentes = new Fuentes();
+        //    Font PoppinsBold = new Font(fuentes.CargarFuente(Properties.Resources.Poppins_Bold), 20, FontStyle.Bold);
+        //    Font PoppinsRegular = new Font(fuentes.CargarFuente(Properties.Resources.Poppins_Regular), 11);
+
+        //    label1.Font = PoppinsBold;
+        //    btnInscribir.Font = PoppinsRegular;
+        //    label2.Font = PoppinsRegular;
+        //    label3.Font = PoppinsRegular;
+        //    label4.Font = PoppinsRegular;
+        //    txtNombreJugador.Font = PoppinsRegular;
+        //    listBoxJugadoresRegistrados.Font = PoppinsRegular;
+        //    listBoxJugadoresEspera.Font = PoppinsRegular;
+        //    btnIniciarTorneo.Font = PoppinsRegular;
+        //    btnLimpiarLista.Font = PoppinsRegular;
+        //}
+        private void ActualizarListas()
+        {
+            listBoxJugadoresRegistrados.Items.Clear();
+            listBoxJugadoresEspera.Items.Clear();
+
+            var confirmados = _jugadorController.ObtenerJugadoresConfirmados() ?? new List<Jugador>();
+            var enEspera = _jugadorController.ObtenerJugadoresEnEspera() ?? new List<Jugador>();
+
+            foreach (var jugador in confirmados)
+            {
+                listBoxJugadoresRegistrados.Items.Add($"{jugador.Nombre} - {jugador.Apellido}");
+            }
+
+            foreach (var jugador in enEspera)
+            {
+                listBoxJugadoresEspera.Items.Add($"{jugador.Nombre} - {jugador.Apellido}");
+            }
+
+            lblCupo.Text = $"{confirmados.Count}/{CUPO_MAXIMO}";
         }
 
         void AlertBox(Color backColor, Color color, string title, string text, Image Icon)
@@ -56,29 +85,6 @@ namespace Torneo_PED
             frm.ShowDialog();
         }
 
-        private void ActualizarListas()
-        {
-            listBoxJugadoresRegistrados.Items.Clear();
-            listBoxJugadoresEspera.Items.Clear();
-
-            // Obtener listas actualizadas desde la base de datos
-            var repo = new InscripcionesRepository();
-            var confirmados = repo.ObtenerJugadoresConfirmados();
-            var enEspera = repo.ObtenerJugadoresEnEspera();
-
-            foreach (var jugador in confirmados)
-            {
-                listBoxJugadoresRegistrados.Items.Add(jugador);
-            }
-
-            foreach (var jugador in enEspera)
-        {
-                listBoxJugadoresEspera.Items.Add(jugador);
-            }
-
-            lblCupo.Text = $"{confirmados.Count}/8";
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -86,26 +92,54 @@ namespace Torneo_PED
 
         private void btnInscribir_Click(object sender, EventArgs e)
         {
-            string nombreJugador = txtNombreJugador.Text.Trim();
+            string nombre = txtNombreJugador.Text.Trim();
+            string apellido = txtApellido.Text.Trim();
+            string dui = txtDui.Text.Trim();
 
-            if (string.IsNullOrEmpty(nombreJugador))
+            // Validar que todos los campos tengan datos
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido) || string.IsNullOrEmpty(dui))
             {
-                MessageBox.Show("Ingrese el nombre del jugador", "Validación",
+                MessageBox.Show("Todos los campos son obligatorios", "Validación",
+                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validar que nombre y apellido solo contengan letras y espacios
+            if (!EsTextoValido(nombre) || !EsTextoValido(apellido))
+            {
+                MessageBox.Show("Nombre y apellido solo pueden contener letras y espacios", "Validación",
+                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validar edad
+            if (!int.TryParse(txtEdad.Text, out int edad) || edad <= 18)
+            {
+                MessageBox.Show("La edad debe ser un número mayor a 18", "Validación",
+                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validar formato DUI (12345678-9)
+            if (!ValidarFormatoDUI(dui))
+            {
+                MessageBox.Show("El DUI debe tener el formato 12345678-9", "Validación",
                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                _gestorInscripciones.InscribirJugador(nombreJugador);
+                _jugadorController.InscribirJugador(nombre, apellido, edad, dui);
                 ActualizarListas();
-                txtNombreJugador.Clear();
-                AlertBox(Color.LightGreen, Color.DarkGreen, "Éxito", "Jugador inscrito correctamente", Properties.Resources.check);
-
+                LimpiarCampos();
+                MessageBox.Show("Jugador inscrito correctamente", "Éxito",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                AlertBox(Color.LightPink, Color.DarkRed, "Error", $"{ex.Message}", Properties.Resources.cancel);
+                MessageBox.Show($"Error al inscribir jugador: {ex.Message}", "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -113,17 +147,18 @@ namespace Torneo_PED
         {
             try
             {
-                if(_gestorInscripciones.ObtenerJugadoresRegistrados().Count==8)
+                if (_jugadorController.TorneoPuedeIniciar())
                 {
                     AlertBox(Color.LightGreen, Color.DarkGreen, "Éxito", "Torneo iniciado con éxito", Properties.Resources.check);
                     // Aquí iría la lógica para iniciar el torneo
                     dashboard frm = new dashboard();
                     frm.Show();
                     this.Hide();
-                }    
+                }
                 else
-                    AlertBox(Color.LightPink, Color.DarkRed, "Error", $"Se requieren 8 participantes", Properties.Resources.cancel);
-                
+                {
+                    AlertBox(Color.LightPink, Color.DarkRed, "Error", "Se requieren 8 participantes", Properties.Resources.cancel);
+                }
             }
             catch (Exception ex)
             {
@@ -145,34 +180,83 @@ namespace Torneo_PED
         {
             try
             {
-                // Aquí iría la lógica para limpiar las listas
-                MessageBox.Show("Listas limpiadas correctamente", "Éxito",
-                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Implementar lógica para limpiar listas si es necesario
+                _jugadorController.LimpiarInscripciones();
+                ActualizarListas();
+                AlertBox(Color.LightGreen, Color.DarkGreen, "Éxito", "Listas limpiadas correctamente", Properties.Resources.check);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al limpiar listas: {ex.Message}", "Error",
-                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+                AlertBox(Color.LightPink, Color.DarkRed, "Error", $"Error al limpiar listas: {ex.Message}", Properties.Resources.cancel);
             }
         }
 
         private void listBoxJugadoresRegistrados_MouseClick(object sender, MouseEventArgs e)
         {
-            if (listBoxJugadoresRegistrados.SelectedItem != null)
-            {
-                try
-                {
-                    string selectedItem = listBoxJugadoresRegistrados.SelectedItem.ToString();
-                    _gestorInscripciones.EliminarJugadores(selectedItem);
-                    ActualizarListas();
-                    txtNombreJugador.Clear();
-                    AlertBox(Color.LightGreen, Color.DarkGreen, "Éxito", "Jugador eliminado correctamente", Properties.Resources.check);
+           
+        }
 
-                }
-                catch (Exception ex)
-                {
-                    AlertBox(Color.LightPink, Color.DarkRed, "Error", $"{ex.Message}", Properties.Resources.cancel);
-                }
+        private void LimpiarCampos()
+        {
+            txtNombreJugador.Clear();
+            txtApellido.Clear();
+            txtEdad.Clear();
+            txtDui.Clear();
+            txtNombreJugador.Focus();
+        }
+
+        private bool EsTextoValido(string texto)
+        {
+            // Permite letras, espacios y acentos
+            return System.Text.RegularExpressions.Regex.IsMatch(texto, @"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$");
+        }
+
+        private bool ValidarFormatoDUI(string dui)
+        {
+            // Formato: 8 dígitos, guión, 1 dígito (12345678-9)
+            return System.Text.RegularExpressions.Regex.IsMatch(dui, @"^\d{8}-\d{1}$");
+        }
+
+        private void txtNombreJugador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo letras, espacios, backspace y acentos
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) &&
+                !char.IsControl(e.KeyChar) &&
+                e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Misma validación que para el nombre
+            txtNombreJugador_KeyPress(sender, e);
+        }
+
+        private void txtEdad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números y backspace
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDui_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números y guión en posición específica
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                !(e.KeyChar == '-' && txtDui.Text.Length == 8 && !txtDui.Text.Contains("-")))
+            {
+                e.Handled = true;
+            }
+
+            // Autoinsertar el guión después de 8 dígitos
+            if (char.IsDigit(e.KeyChar) && txtDui.Text.Length == 8 && !txtDui.Text.Contains("-"))
+            {
+                txtDui.Text += "-";
+                txtDui.SelectionStart = txtDui.Text.Length;
             }
         }
     }
