@@ -132,6 +132,12 @@ namespace Torneo_PED
         {
             if (nodo == null) return;
 
+            if (nodo.Izquierdo.Partido.Jugador1 == null || 
+                nodo.Izquierdo.Partido.Jugador2 == null ||
+                nodo.Derecho.Partido.Jugador1 == null ||
+                nodo.Derecho.Partido.Jugador1 == null
+                )
+                return;
             // Dibujar líneas conectivas
             if (nodo.Izquierdo != null)
             {
@@ -152,6 +158,9 @@ namespace Torneo_PED
                                int nivelMaximo, int espacioHorizontal)
         {
             if (nodo == null) return;
+
+            if (nodo.Partido.Jugador1 == null || nodo.Partido.Jugador2 == null)
+                return;
 
             // Dibujar el nodo actual con tamaño aumentado
             var lblPartido = new Label
@@ -196,7 +205,7 @@ namespace Torneo_PED
             }
 
             // Simular solo una ronda (el primer nivel de partidos sin ganador)
-            var nivelActual = partidosPorJugar.Min(p => _arbolTorneo.ObtenerNivelPartido(p));
+            var nivelActual = partidosPorJugar.Max(p => _arbolTorneo.ObtenerNivelPartido(p));
             var partidosRondaActual = partidosPorJugar
                 .Where(p => _arbolTorneo.ObtenerNivelPartido(p) == nivelActual)
                 .ToList();

@@ -86,7 +86,8 @@ namespace Torneo_PED.Clases
         {
             var partidos = new List<Partido>();
             ObtenerPartidosSinGanador(Raiz, partidos);
-            return partidos.Where(p => p.Ganador == null && (p.Jugador1 != null || p.Jugador2 != null)).ToList();
+            var partidosLimpiado = partidos.Where(p => p.Ganador == null && p.Jugador1 != null && p.Jugador2 != null).ToList();
+            return partidosLimpiado;
         }
 
         private void ObtenerPartidosSinGanador(NodoTorneo nodo, List<Partido> partidos)
